@@ -1,37 +1,59 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View, Text, StyleSheet, TouchableOpacity, Alert,
+} from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function MemoList() {
+  const navigation = useNavigation();
   return (
     <View>
-      <View style={styles.memoListItem}>
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
         <View>
           <Text style={styles.memoListItemTitle}>買い物リスト</Text>
           <Text style={styles.memoListItemDate}>2022/01//26 15:30</Text>
         </View>
-        <View>
+        <TouchableOpacity
+          style={styles.memoDelete}
+          onPress={() => { Alert.alert('削除していいですか？'); }}
+        >
           <Feather name="x" size={16} color="#b0b0b0" />
-        </View>
-      </View>
-      <View style={styles.memoListItem}>
+        </TouchableOpacity>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
         <View>
           <Text style={styles.memoListItemTitle}>買い物リスト</Text>
           <Text style={styles.memoListItemDate}>2022/01//26 15:30</Text>
         </View>
-        <View>
-          <Feather name="x" fontSize={16} color="#b0b0b0" />
-        </View>
-      </View>
-      <View style={styles.memoListItem}>
+        <TouchableOpacity
+          style={styles.memoDelete}
+          onPress={() => { Alert.alert('削除していいですか？'); }}
+        >
+          <Feather name="x" size={16} color="#b0b0b0" />
+        </TouchableOpacity>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
         <View>
           <Text style={styles.memoListItemTitle}>買い物リスト</Text>
           <Text style={styles.memoListItemDate}>2022/01//26 15:30</Text>
         </View>
-        <View>
-          <Feather name="x" fontSize={16} color="#b0b0b0" />
-        </View>
-      </View>
+        <TouchableOpacity
+          style={styles.memoDelete}
+          onPress={() => { Alert.alert('削除していいですか？'); }}
+        >
+          <Feather name="x" size={16} color="#b0b0b0" />
+        </TouchableOpacity>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -55,5 +77,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     color: '#848484',
+  },
+  memoDelete: {
+    padding: 10,
   },
 });
