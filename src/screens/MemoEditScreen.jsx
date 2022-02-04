@@ -10,7 +10,13 @@ export default function MemoEditScreen(props) {
   return (
     <KeyboardAvoidingView style={styles.container} behaivior="height">
       <View style={styles.inputContainer}>
-        <TextInput value="買い物リスト" multiline style={styles.input} />
+        <TextInput
+          value="買い物リスト"
+          multiline
+          style={styles.input}
+          keyboardType="default"
+          textContentType="none"
+        />
       </View>
       <CircleButton
         name="check"
